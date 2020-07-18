@@ -299,6 +299,7 @@ def get_oldest_modified_time(path):
 ################################################################################
 def get_newest_modified_time(path):
     time_list = []
+    print("for each elem of" + path)
     for file in os.listdir(path):
         filepath = os.path.join(path, file)
         if (os.path.isdir(filepath)):
@@ -393,9 +394,13 @@ def create_calculator_page(calculator_name):
     if not os.path.exists(calculator_folder):
         os.makedirs(calculator_folder)
     else:
+        print("get oldest output")
         oldest_output = get_oldest_modified_time(calculator_folder)
+        print("get newest resource")
         newest_resource = get_newest_modified_time(source_folder)
+        print("get newest corelib")
         newest_corelib = get_newest_modified_time("core")
+        print("get newest build script")
         newest_build_script = os.path.getctime("build.py")
         if oldest_output > max(newest_resource, newest_corelib, newest_build_script):
             print("Skipping", calculator_name, "Nothing has changed since the last build")
