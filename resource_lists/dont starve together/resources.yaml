@@ -1,0 +1,371 @@
+---
+authors:
+  orgAMS: ""
+
+index_page_display_name: "don't starve together"
+
+recipe_types:
+  Base Craft:           "Avec {IN_ITEMS} fabiquer {OUT_ITEM}"
+  Machine scientifique: "Avec {IN_ITEMS} fabiquer {OUT_ITEM} (Machine scientifique)"
+  Moteur d'alchimie:    "Avec {IN_ITEMS} fabiquer {OUT_ITEM} (Moteur d'alchimie)"
+  Casser: "Casser avec une pioche {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Couper:  "Couper avec une hache {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Raser: "Raser avec un rasoir {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Attraper: "Attraper avec un filet {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Bruler: "Bruler avec une torche {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Tuer: "Tuer {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Recolter: "Recolter {IN_ITEMS} pour avoir {OUT_ITEM}"
+  Roi cochon: "Donner {IN_ITEMS} au roi cochon pour avoir {OUT_ITEM}"
+  Pack: "Voilà vous avez votre pack {OUT_ITEM} avec {IN_ITEMS}"
+
+resources:
+  Pousse d'arbre:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Pousse d'arbre: 0
+  Brindilles:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Brindilles: 0
+    - output: 1
+      recipe_type: Recolter
+      requirements:
+        Pousse d'arbre: -1
+  Silex:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Silex: 0
+  Rocher lisse:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Rocher lisse: 0
+  Veine d'or:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Veine d'or: 0
+  Arbre:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Arbre: 0
+  Pioche:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Brindilles: -2
+        Silex: -2
+  Pierre:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Pierre: 0
+    - output: 3
+      recipe_type: Pioche
+      requirements:
+        Rocher lisse: -1
+  Pierre taillée:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Pierre: -3
+  Hache:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Brindilles: -1
+        Silex: -1
+  Bûche:
+    recipes:
+    - output: 3
+      recipe_type: Couper
+      requirements:
+        Arbre: -1
+        Hache: -0.15
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Bûche: 0
+  Planche:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Bûche: -4
+  Viande:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Viande: 0
+  Or:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Or: 0
+    - output: 1.25
+      recipe_type: Casser
+      requirements:
+        Veine d'or: -1
+    - output: 1
+      recipe_type: Roi cochon
+      requirements:
+        Viande: -1
+  Foyer:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Pierre: -12
+        Bûche: -2
+  Machine scientifique:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Or: -1
+        Pierre: -4
+        Bûche: -4
+  Transistor:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Or: -2
+        Pierre taillée: -1
+  Moteur d'alchimie:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Pierre taillée: -2
+        Planche: -4
+        Transistor: -1
+  Araignée:
+    recipes:
+    - output: 1
+      recipe_type: Monstres
+      requirements:
+        Araignée: 0
+  Soie:
+    recipes:
+    - output: 1
+      recipe_type: Tuer
+      requirements:
+        Araignée: -3
+  Herbe:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Herbe: 0
+  Herbe coupée:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Herbe coupée: 0
+    - output: 1
+      recipe_type: Recolter
+      requirements:
+        Herbe: -1
+  Corde:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Herbe coupée: -3
+  Filet à insectes:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Brindilles: -4
+        Soie: -2
+        Corde: -1
+  Abeille:
+    recipes:
+    - output: 1
+      recipe_type: Attraper
+      requirements:
+        Monstre Abeille: -1
+        Filet à insectes: -0.1
+  Monstre Abeille:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Monstre Abeille: 0
+  Ruche:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Ruche: 0
+  Rayon de miel:
+    recipes:
+    - output: 1
+      recipe_type: Tuer
+      requirements:
+        Ruche: -1
+  Ruche d'apiculteur:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Planche: -2
+        Rayon de miel: -1
+        Abeille: -4
+  Coffre:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Planche: -3
+  Torche:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Brindilles: -2
+        Herbe coupée: -2
+  Arbre brulé:
+    recipes:
+    - output: 1
+      recipe_type: Bruler
+      requirements:
+        Arbre: -1
+  Charbon:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Charbon: 0
+    - output: 1
+      recipe_type: Couper
+      requirements:
+        Arbre brulé: -1
+  Mijoteuse:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Pierre taillée: -3
+        Charbon: -6
+        Brindilles: -6
+  Piège:
+    recipes:
+    - output: 1
+      recipe_type: Base Craft
+      requirements:
+        Herbe coupée: -6
+        Brindilles: -2
+  Jardinet amélioré:
+    recipes:
+    - output: 1
+      recipe_type: Moteur d'alchimie
+      requirements:
+        Herbe coupée: -10
+        Bouse: -6
+        Pierre: -4
+  Bouse:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Bouse: 0
+  Séchoir à viande:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Brindilles: -3
+        Charbon: -2
+        Corde: -3
+  Pierre thermale:
+    recipes:
+    - output: 1
+      recipe_type: Moteur d'alchimie
+      requirements:
+        Pierre: -10
+        Pioche: -1
+        Silex: -3
+  Rasoir:
+    recipes:
+    - output: 1
+      recipe_type: Machine scientifique
+      requirements:
+        Brindilles: -2
+        Silex: -2
+  Boeufalo:
+    recipes:
+    - output: 1
+      recipe_type: Raw Resource
+      requirements:
+        Boeufalo: 0
+  Laine de boeufalo:
+    recipes:
+    - output: 3
+      recipe_type: Raser
+      requirements:
+        Boeufalo: -1
+  Bonnet d'hiver:
+    recipes:
+    - output: 1
+      recipe_type: Moteur d'alchimie
+      requirements:
+        Laine de boeufalo: -4
+        Soie: -4
+
+
+  Base Automne:
+    recipes:
+    - output: 1
+      recipe_type: Pack
+      requirements:
+        Foyer: -1
+        Machine scientifique: -1
+        Coffre: -1
+        Mijoteuse: -1
+        Piège: -5
+        Jardinet amélioré: -2
+        Séchoir à viande: -1
+  Equipement hiver:
+    recipes:
+    - output: 1
+      recipe_type: Pack
+      requirements:
+        Pierre thermale: -1
+        Rasoir: -1
+        Bonnet d'hiver: -1
+  Base Automne Avancée:
+    recipes:
+    - output: 1
+      recipe_type: Pack
+      requirements:
+        Moteur d'alchimie: -1
+        Coffre: -2
+        Piège: -5
+        Jardinet amélioré: -2
+        Séchoir à viande: -1
+  Apiculture:
+    recipes:
+    - output: 1
+      recipe_type: Pack
+      requirements:
+        Ruche d'apiculteur: -4
